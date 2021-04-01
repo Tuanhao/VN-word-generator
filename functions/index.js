@@ -2,11 +2,11 @@ const functions = require('firebase-functions');
 const app = require('express')();
 
 const {
-    getAllTodos,
+    getWords,
     addWords
 } = require('./APIs/todos')
 
 
 app.post('/addWords', addWords)
-app.get('/todos', getAllTodos)
+app.post('/getWords', getWords)
 exports.api = functions.https.onRequest(app)
