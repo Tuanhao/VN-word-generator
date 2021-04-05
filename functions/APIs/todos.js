@@ -2,6 +2,7 @@ const { admin, db } = require('../util/admin');
 const { object } = require('firebase-functions/lib/providers/storage');
 
 exports.getWords = (request, response) => {
+	//NOTE: need to implement to support the 'all' option
 	db
         .collection('words')
         .doc(request.body.wordType)

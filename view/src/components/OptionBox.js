@@ -3,7 +3,9 @@ import React, { PureComponent } from "react";
 export default class OptionBox extends PureComponent {
   constructor(props) {
     super(props)
-    this.handleChange = this.handleChange.bind(this)
+    this.handleGeneration = this.handleGeneration.bind(this)
+    this.handleAmountChange = this.handleAmountChange.bind(this)
+    this.handleTypeChange = this.handleTypeChange.bind(this)
     this.state = {
         wordAmount: 1,
         wordType: 'nouns',
@@ -11,49 +13,64 @@ export default class OptionBox extends PureComponent {
     };
   }
 
-  handleChange() {
-    const newWords = [];
-    if(this.wordList.length == 0) {
-      fetch("/getWords", {
+  async handleGeneration() {
+    let displayWords = [];
+    let tempWL = [];
+    let i;
+    let data = new URLSearchParams({
+      "wordType": this.state.wordType,
+    })
+    if(this.state.wordList.length === 0) {
+      tempWL = await fetch("/getWords", {
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
         method: "POST",
-        body: new URLSearchParams({
-          "wordType": "nouns"
-        })
+        body: data
       })
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        this.setState({wordList: data})
-        newWords = data
+      .then(res => res.json())
+      .then(data => data)   
+      .catch((error) => {
+        console.error('Error:', error);
       })
     } else {
-      
+      tempWL = this.state.wordList;
     }
-    this.props.onWordGeneration(newWords)
+    let randWords = shuffle(tempWL);
+    for (i = 0; i < this.state.wordAmount; i++) {
+      displayWords.push(randWords.next().value)
+    }
+    this.setState({wordList: tempWL})
+    this.props.onWordGeneration(displayWords)
+  }
+
+  handleAmountChange(e) {
+    this.setState({wordAmount: e.target.value})
+  }
+
+  handleTypeChange(e) {
+    this.setState({wordType: e.target.value})
   }
 
   render() {
     return (
       <div>
-        {this.state.wordList.length}
         <label>Số lượng từ: </label>
         <input 
           type="number" 
           min="1"
           max="5"
-          value={this.state.wordAmount} />
+          value={this.state.wordAmount} 
+          onChange={this.handleAmountChange} />
         <label>Loại từ: </label>
         <select 
-          value={this.state.wordType}>
+          value={this.state.wordType}
+          onChange={this.handleTypeChange}>
             <option value="nouns">Danh từ</option>
             <option value="verbs">Động từ</option>
-            <option value="adjective">Tính từ</option>
+            <option value="adjectives">Tính từ</option>
             <option value="all">Tổng hợp</option>
           </select>
         <button
-          onClick={this.handleChange}>
+          onClick={this.handleGeneration}>
           Tạo từ mới
         </button>
       </div>

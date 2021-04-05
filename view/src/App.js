@@ -23,8 +23,8 @@ export default class App extends Component {
     return (
       <div className="App">
         <Header />
-        {this.state.selectedWordList}
         <OptionBox onWordGeneration={this.handleWordGeneration}  />
+        <DisplayBox words={this.state.selectedWordList} />
       </div>
     );
   }
