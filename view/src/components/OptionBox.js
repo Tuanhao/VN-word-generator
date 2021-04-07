@@ -26,10 +26,17 @@ export default class OptionBox extends PureComponent {
         method: "POST",
         body: data
       })
-      .then(res => res.json())
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          throw new Error('Cant obtain words from server')
+        }
+      })
       .then(data => data)   
       .catch((error) => {
-        console.error('Error:', error);
+        console.error('Error:', error)
+        return []
       })
     } else {
       tempWL = this.state.wordList;
@@ -38,6 +45,7 @@ export default class OptionBox extends PureComponent {
     for (i = 0; i < this.state.wordAmount; i++) {
       displayWords.push(randWords.next().value)
     }
+    //error handling is lacking
     this.setState({wordList: tempWL})
     this.props.onWordGeneration(displayWords)
   }
