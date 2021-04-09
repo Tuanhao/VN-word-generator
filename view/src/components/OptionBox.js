@@ -1,5 +1,7 @@
 import React, { PureComponent } from "react";
 
+import './OptionBox.css'
+
 export default class OptionBox extends PureComponent {
   constructor(props) {
     super(props)
@@ -60,14 +62,15 @@ export default class OptionBox extends PureComponent {
 
   render() {
     return (
-      <div>
+      <div className="box">
         <label>Số lượng từ: </label>
         <input 
           type="number" 
           min="1"
-          max="5"
+          max="10"
           value={this.state.wordAmount} 
           onChange={this.handleAmountChange} />
+        <br/>
         <label>Loại từ: </label>
         <select 
           value={this.state.wordType}
@@ -77,6 +80,7 @@ export default class OptionBox extends PureComponent {
             <option value="adjectives">Tính từ</option>
             <option value="all">Tổng hợp</option>
           </select>
+          <br/>
         <button
           onClick={this.handleGeneration}>
           Tạo từ mới

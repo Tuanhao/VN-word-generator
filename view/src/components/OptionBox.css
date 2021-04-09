@@ -1,0 +1,27 @@
+label {
+  margin: auto;
+  margin-left: 0;
+  display: inline-block;
+  font-size: 16px;
+}
+
+input, select {
+  margin: auto;
+  font-size: 13px;
+  min-width: 20px;
+}
+
+button {
+  width: 100%;
+  margin: 5% 0;
+  font-size: 15px;
+  font-weight: 600;
+  border: 2px solid purple;
+  background: #e7bfff;
+  color: purple;
+  border-radius: 3px;
+}
+
+.label--notopmargin {
+  margin-top: 0;
+}

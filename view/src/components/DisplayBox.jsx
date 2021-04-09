@@ -1,5 +1,7 @@
 import React, { PureComponent } from "react";
 
+import './DisplayBox.css'
+
 export default class DisplayBox extends PureComponent {
   constructor(props) {
     super(props)
@@ -11,7 +13,7 @@ export default class DisplayBox extends PureComponent {
 
   render() {
     return (
-      <div>
+      <div className="box">
         {this.props.selectedWL.map(i => {
           return (
             <div key={i}>
