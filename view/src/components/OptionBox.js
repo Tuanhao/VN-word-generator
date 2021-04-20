@@ -23,7 +23,7 @@ export default class OptionBox extends PureComponent {
       "wordType": this.state.wordType,
     })
     if(this.state.wordList.length === 0) {
-      tempWL = await fetch("/getWords", {
+      tempWL = await fetch("https://us-central1-vn-word-generator.cloudfunctions.net/api/getWords", {
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
         method: "POST",
         body: data
