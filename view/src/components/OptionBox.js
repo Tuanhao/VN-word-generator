@@ -70,7 +70,7 @@ export default class OptionBox extends PureComponent {
           max="10"
           value={this.state.wordAmount} 
           onChange={this.handleAmountChange} />
-        <br/>
+        <hr/>
         <label>Loại từ: </label>
         <select 
           value={this.state.wordType}
@@ -80,7 +80,7 @@ export default class OptionBox extends PureComponent {
             <option value="adjectives">Tính từ</option>
             <option value="all">Tổng hợp</option>
           </select>
-          <br/>
+          <hr/>
         <button
           onClick={this.handleGeneration}>
           Tạo từ mới

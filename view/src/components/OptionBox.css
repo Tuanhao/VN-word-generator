@@ -2,19 +2,21 @@ label {
   margin: auto;
   margin-left: 0;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 input, select {
   margin: auto;
-  font-size: 13px;
+  font-size: 18px;
   min-width: 20px;
+  margin-right: 0;
 }
 
 button {
   width: 100%;
+  height: 40%;
   margin: 5% 0;
-  font-size: 15px;
+  font-size: 25px;
   font-weight: 600;
   border: 2px solid purple;
   background: #e7bfff;
@@ -24,4 +26,10 @@ button {
 
 .label--notopmargin {
   margin-top: 0;
+}
+hr {
+  flex-basis: 100%; 
+  height: 0; 
+  margin: 0; 
+  border: 0;
 }

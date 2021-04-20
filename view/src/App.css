@@ -4,14 +4,14 @@
 }
 
 .box {
-  float: left;
-  width: 37%;
-  margin: 0 2%;
+  width: 75%;
+  margin: 5% auto;
   text-align: left;
   padding: 3%;
   border: 1px solid #a900ff4f;
   border-radius: 3px;
-  height: 25%;
+  height: 35%;
   display: flex;
   flex-wrap: wrap;
+  max-width: 500px;
 }
