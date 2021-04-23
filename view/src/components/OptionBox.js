@@ -16,6 +16,7 @@ export default class OptionBox extends PureComponent {
   }
 
   async handleGeneration() {
+    this.props.inFetching()
     let displayWords = [];
     let tempWL = [];
     let i;
@@ -53,6 +54,9 @@ export default class OptionBox extends PureComponent {
   }
 
   handleAmountChange(e) {
+    if (e.target.value > 5) {
+      e.target.value = 5;
+    }
     this.setState({wordAmount: e.target.value})
   }
 
@@ -63,11 +67,11 @@ export default class OptionBox extends PureComponent {
   render() {
     return (
       <div className="box">
-        <label>Số lượng từ: </label>
+        <label>Số lượng từ (1 tới 5): </label>
         <input 
           type="number" 
           min="1"
-          max="10"
+          max="5"
           value={this.state.wordAmount} 
           onChange={this.handleAmountChange} />
         <hr/>
@@ -78,7 +82,6 @@ export default class OptionBox extends PureComponent {
             <option value="nouns">Danh từ</option>
             <option value="verbs">Động từ</option>
             <option value="adjectives">Tính từ</option>
-            <option value="all">Tổng hợp</option>
           </select>
           <hr/>
         <button

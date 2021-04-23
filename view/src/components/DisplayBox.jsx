@@ -7,21 +7,23 @@ export default class DisplayBox extends PureComponent {
     super(props)
     this.state = {
       favWords: [],
-
     };
   }
 
   render() {
     return (
       <div className="box">
-        {this.props.selectedWL.map(i => {
-          return (
-            <div key={i}>
-              {i}
-              <span key={i}> &#9829;</span>
-            </div>
-          )
-        })}
+        {(this.props.isFetching)? 
+          <div className="spinner">&#9733;</div> :
+          this.props.selectedWL.map(i => {
+            return (
+              <div className="big-font" key={i}>
+                {i}
+                <span key={i}> &#9825;</span>
+              </div>
+            )
+          })
+        }
       </div>
     )
   }
