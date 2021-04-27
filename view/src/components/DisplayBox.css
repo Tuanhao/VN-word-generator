@@ -19,6 +19,7 @@
   border-radius: 100%;
   font-size: 5em;
   text-align: center;
+  font-family: system-ui;
   -webkit-animation: rotating 1s linear infinite;
   -moz-animation: rotating 1s linear infinite;
   -ms-animation: rotating 1s linear infinite;

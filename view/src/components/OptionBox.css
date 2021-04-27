@@ -13,15 +13,14 @@ input, select {
 }
 
 button {
-  width: 100%;
-  height: 40%;
-  margin: 5% 0;
+  width: 80%;
+  height: 35%;
+  margin: 5% auto;
   font-size: 25px;
-  font-weight: 600;
-  border: 2px solid purple;
+  border: 4px solid purple;
   background: #e7bfff;
   color: purple;
-  border-radius: 3px;
+  border-radius: 25px;
 }
 
 .label--notopmargin {

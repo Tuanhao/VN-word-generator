@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   height: 100vh;
+  font-family: 'Montserrat';
 }
 
 .box {
@@ -8,15 +9,37 @@
   margin: 5% auto;
   text-align: left;
   padding: 3%;
-  border: 1px solid #a900ff4f;
+  border: 2px solid #a900ff4f;
   border-radius: 3px;
-  height: 30%;
+  height: 35%;
   display: flex;
   flex-wrap: wrap;
   max-width: 500px;
 }
 
+.description {
+  height: auto;
+}
+
 .keyword {
-  position: absolute;
-  bottom: 0;
+  border: none;
+  font-size: 8px;
+  height: auto;
+}
+
+.mavenpro {
+  font-family: 'MavenPro';
+}
+
+.montserrat {
+  font-family: 'Montserrat';
+}
+
+@font-face {
+  font-family: 'MavenPro';
+  src: url('./fonts/MavenPro-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-Regular.ttf') format('truetype');
 }

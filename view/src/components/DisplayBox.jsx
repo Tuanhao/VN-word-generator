@@ -12,7 +12,7 @@ export default class DisplayBox extends PureComponent {
 
   render() {
     return (
-      <div className="box">
+      <div className="box mavenpro">
         {(this.props.isFetching)? 
           <div className="spinner">&#9733;</div> :
           this.props.selectedWL.map(i => {

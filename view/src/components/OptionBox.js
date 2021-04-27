@@ -61,12 +61,15 @@ export default class OptionBox extends PureComponent {
   }
 
   handleTypeChange(e) {
-    this.setState({wordType: e.target.value})
+    this.setState({
+      wordType: e.target.value,
+      wordList: []
+    })
   }
 
   render() {
     return (
-      <div className="box">
+      <div className="box montserrat">
         <label>Số lượng từ (1 tới 5): </label>
         <input 
           type="number" 
@@ -85,8 +88,9 @@ export default class OptionBox extends PureComponent {
           </select>
           <hr/>
         <button
-          onClick={this.handleGeneration}>
-          Tạo từ mới
+          onClick={this.handleGeneration}
+          className="mavenpro">
+          TẠO TỪ MỚI
         </button>
       </div>
     );
