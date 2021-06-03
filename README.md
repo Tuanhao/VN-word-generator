@@ -1,8 +1,10 @@
 # VN-word-generator
 Web app where user can generate random Vietnam words. 
 
-## Features:
+## Implement details:
+https://www.notion.so/VN-word-generator-d4730e7b5528470ebcb60105f76a5a03 
 
+## Features:
 - Word types are split into 3 categories: nouns, adjective, verb.
 - The default option for word type is "noun".
 - User can choose word type "all", which consists all the words.
